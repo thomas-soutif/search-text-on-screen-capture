@@ -14,9 +14,17 @@ def get_screen_resolution():
 
 # Function to capture the entire screen
 def capture_screen():
+
+    screen_width, screen_height = get_screen_resolution()
+    
+    region_width = int(screen_width)
+    region_height = int(screen_height)
+    region_left = 0  # Leftmost side
+    region_top = 0  # Topmost side
+
     with mss.mss() as sct:
-        monitor = sct.monitors[1]  # Capture the primary monitor
-        screenshot = sct.grab(monitor)
+        region = {'left': region_left, 'top': region_top, 'width': region_width, 'height': region_height}
+        screenshot = sct.grab(region)
         img = np.array(screenshot)
         return img
 
