@@ -4,6 +4,7 @@ from PIL import Image
 import numpy as np
 import mss
 import time
+import argparse
 
 def get_screen_resolution():
     with mss.mss() as sct:
@@ -64,8 +65,7 @@ def save_image(image, filename):
 
 ################################################ --------- Main ####################################################
 
-def main():
-    words_to_find = ['site-packages', 'any_word']
+def main(words_to_find):
     try:
         while True:
             start_time = time.time()
@@ -95,4 +95,8 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description='Capture screen and extract text.')
+    parser.add_argument('words_to_find', nargs='+', help='List of stop words')
+    args = parser.parse_args()
+
+    main(args.words_to_find)
