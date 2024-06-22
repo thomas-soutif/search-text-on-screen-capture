@@ -3,7 +3,11 @@ It's quite fast on specific region (around 0.3seconds), and on the entire screen
 
 ## Requirement
 
-You need to have Tesseract install on your system to use this script. Here the github link to install it on Windows : https://github.com/UB-Mannheim/tesseract/wiki
+You need to have Tesseract install on your system to use this script. 
+
+Here the github link to install it on Windows : https://github.com/UB-Mannheim/tesseract/wiki
+
+For Linux, you can install the package ```tesseract-ocr``` depend on your distribution.
 
 ## Installation on Windows
 
